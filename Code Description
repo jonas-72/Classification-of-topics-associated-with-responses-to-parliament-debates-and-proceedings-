@@ -1,0 +1,34 @@
+This demonstrates the steps to train a basic text classification model using the Naive Bayes algorithm. Here's a breakdown of the code:
+
+Load the Excel data:
+
+The Excel data is loaded into a pandas DataFrame df.
+Preprocess the text:
+
+The preprocess_text function preprocesses the text data by tokenizing, removing non-alphabetic characters, removing stopwords, and lemmatizing the tokens.
+The preprocessed text is stored in a new column called preprocessed_text in the DataFrame.
+Define the target labels:
+
+The target labels are defined and stored in a column called topic in the DataFrame.
+Split the data into training and testing sets:
+
+The preprocessed text and corresponding labels are split into training and testing sets using train_test_split from sklearn.model_selection.
+The training set is assigned to X_train and y_train, while the testing set is assigned to X_test and y_test.
+Create TF-IDF features:
+
+The TF-IDF vectorizer is initialized from sklearn.feature_extraction.text and fitted on the training set (X_train) to learn the vocabulary and IDF weights.
+The training and testing sets are transformed into TF-IDF feature vectors using the fitted vectorizer.
+Train the classifier:
+
+The Multinomial Naive Bayes classifier (MultinomialNB) is initialized from sklearn.naive_bayes.
+The classifier is trained on the training data (X_train and y_train) using the fit method.
+Evaluate the model:
+
+The accuracy of the model is computed by calling the score method on the testing data (X_test and y_test).
+Use the trained model to predict topics:
+
+A new text is defined for prediction.
+The new text is preprocessed using the preprocess_text function.
+The preprocessed text is transformed into a TF-IDF feature vector using the vectorizer.
+The classifier predicts the topic of the new text using the predict method.
+imported the necessary libraries (nltk, stopwords, WordNetLemmatizer) and downloaded the required NLTK resources before running the code.
